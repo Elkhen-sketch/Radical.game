@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dky062fdaea3f"]
 
 [ext_resource type="Texture2D" uid="uid://e63gjmqqwe32" path="res://Tileset/Tileset.png" id="1_3itle"]
+[ext_resource type="Texture2D" uid="uid://cv15skmgvqi4e" path="res://Tileset/background.png" id="1_mgpv1"]
 [ext_resource type="PackedScene" uid="uid://chxyj6hhijpfk" path="res://PLayer/player.tscn" id="2_evdhh"]
-[ext_resource type="Texture2D" uid="uid://bcpc0xd33t5se" path="res://PLayer/background.png" id="3_mgpv1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evdhh"]
 texture = ExtResource("1_3itle")
@@ -517,6 +517,17 @@ sources/0 = SubResource("TileSetAtlasSource_evdhh")
 
 [node name="Level" type="Node2D"]
 
+[node name="Parralax" type="Node2D" parent="."]
+visible = false
+position = Vector2(702, -66)
+scale = Vector2(2.36984, 2.11354)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Parralax"]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parralax/ParallaxBackground"]
+visible = false
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-148, 394)
 tile_set = SubResource("TileSet_mgpv1")
@@ -528,9 +539,17 @@ position = Vector2(-295, 405)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(25, 129)
+offset = Vector2(-12, -171)
 
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(702, -66)
-scale = Vector2(2.36984, 2.11354)
-texture = ExtResource("3_mgpv1")
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D"]
+z_index = -2
+position = Vector2(-13, -174)
+scale = Vector2(0.61746, 0.580786)
+texture = ExtResource("1_mgpv1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+visible = false
+position = Vector2(295, -405)
+scale = Vector2(0.601587, 0.558952)
+texture = ExtResource("1_mgpv1")
+centered = false
