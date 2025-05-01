@@ -516,6 +516,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_evdhh")
 
 [node name="Level" type="Node2D"]
+position = Vector2(1, 0)
 
 [node name="Parralax" type="Node2D" parent="."]
 visible = false
