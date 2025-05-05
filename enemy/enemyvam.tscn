@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfiv4dvgdni03"]
+
+[ext_resource type="Script" uid="uid://bhq77xjivh34l" path="res://enemy/enemyvam.gd" id="1_hhim5"]
+[ext_resource type="Texture2D" uid="uid://bou5jta43ugbl" path="res://enemy/Walk.png" id="1_pj5sq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhim5"]
+atlas = ExtResource("1_pj5sq")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7koua"]
+atlas = ExtResource("1_pj5sq")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbjvo"]
+atlas = ExtResource("1_pj5sq")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrb7g"]
+atlas = ExtResource("1_pj5sq")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmmfp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhim5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7koua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbjvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrb7g")
+}],
+"loop": true,
+"name": &"walk_vam",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_26jk5"]
+radius = 46.0435
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_myelu"]
+radius = 49.4975
+
+[node name="enemyvam" type="CharacterBody2D"]
+script = ExtResource("1_hhim5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -25)
+scale = Vector2(1, 0.979167)
+sprite_frames = SubResource("SpriteFrames_qmmfp")
+animation = &"walk_vam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -37)
+shape = SubResource("CircleShape2D_26jk5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(52, -51)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-51, 13)
+shape = SubResource("CircleShape2D_myelu")
+debug_color = Color(0.843232, 0.365135, 0.289195, 0.42)

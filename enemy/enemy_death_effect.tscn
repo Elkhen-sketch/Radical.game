@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6qdqtctpqpvk"]
+
+[ext_resource type="Texture2D" uid="uid://bu2wp1nsbd0vf" path="res://enemy/Vampires1_Death_smoke.png" id="1_21274"]
+[ext_resource type="Script" uid="uid://bfasvo6fjrt7" path="res://enemy/enemy_death_effect.gd" id="2_6dacb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwl6m"]
+atlas = ExtResource("1_21274")
+region = Rect2(0, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iu4w"]
+atlas = ExtResource("1_21274")
+region = Rect2(62, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhwvp"]
+atlas = ExtResource("1_21274")
+region = Rect2(124, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvemg"]
+atlas = ExtResource("1_21274")
+region = Rect2(186, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm4r8"]
+atlas = ExtResource("1_21274")
+region = Rect2(248, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cayx"]
+atlas = ExtResource("1_21274")
+region = Rect2(310, 0, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppd1a"]
+atlas = ExtResource("1_21274")
+region = Rect2(372, 0, 62, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdq6i"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwl6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iu4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhwvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvemg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm4r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cayx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppd1a")
+}],
+"loop": true,
+"name": &"enemy_death",
+"speed": 5.0
+}]
+
+[node name="enemy_death_effect" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_mdq6i")
+animation = &"enemy_death"
+script = ExtResource("2_6dacb")
